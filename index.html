@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Arun Pradeep | Academician | Saveetha Engineering College</title>
+  <title>Dr. Arun Pradeep | Academician & Certified QNX Trainer | Saveetha Engineering College</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -288,7 +288,85 @@
       white-space: nowrap; text-overflow: ellipsis;
     }
 
-    /* ── Responsive ─────────────────────────── */
+    /* ── RTOS / QNX ─────────────────────────── */
+    --qnx: #00b388;   /* BlackBerry QNX green */
+
+    .cert-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #0f1117; color: var(--qnx);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+      padding: 6px 14px; border-radius: 100px;
+      border: 1px solid var(--qnx);
+      margin-bottom: 20px;
+    }
+    .cert-badge::before { content: '✦'; font-size: 10px; }
+
+    .rtos-banner {
+      background: #0f1117;
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .rtos-banner::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--qnx), transparent);
+    }
+    .rtos-banner-grid {
+      display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center;
+    }
+    .rtos-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--qnx);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .rtos-banner h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem; color: #fff; margin-bottom: 8px;
+    }
+    .rtos-banner p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .btn-github {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--qnx); color: #0f1117;
+      padding: 10px 20px; border-radius: var(--radius);
+      font-size: 13px; font-weight: 700;
+      text-decoration: none; white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .btn-github:hover { opacity: 0.85; }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    .exp-card {
+      background: var(--surface); border: 1px solid var(--grid);
+      border-radius: var(--radius); padding: 20px;
+      text-decoration: none; color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .exp-card:hover {
+      border-color: var(--qnx);
+      box-shadow: 0 4px 18px rgba(0,179,136,0.08);
+    }
+    .exp-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--qnx);
+      letter-spacing: 0.1em;
+    }
+    .exp-title { font-weight: 600; font-size: 14px; }
+    .exp-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+    @media (max-width: 640px) {
+      .rtos-banner-grid { grid-template-columns: 1fr; }
+      .exp-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 640px) {
       .hero { grid-template-columns: 1fr; }
       .avatar-block { width: 100px; height: 100px; }
@@ -316,6 +394,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#rtos">RTOS / QNX</a></li>
         <li><a href="#videos">Videos</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -328,12 +407,14 @@
       <div>
         <p class="hero-eyebrow">Saveetha Engineering College · Chennai</p>
         <h1>Dr. Arun<br/>Pradeep</h1>
-        <p class="hero-title">Academician &amp; Educator · Department of Mathematics</p>
+        <p class="hero-title">Academician &amp; Educator · Mathematics &amp; Embedded Systems</p>
+        <span class="cert-badge">Certified Trainer · BlackBerry QNX RTOS</span>
         <p class="hero-desc">
-          Passionate about making higher mathematics accessible and engaging for engineering students. My work spans Linear Algebra, Numerical Methods, and Applied Mathematics — with a focus on hands-on, lab-driven pedagogy.
+          Passionate about making higher mathematics and real-time systems accessible to engineering students. My work spans Linear Algebra, Applied Mathematics, and RTOS programming with BlackBerry QNX — bridging theory with hands-on, lab-driven practice.
         </p>
         <div class="hero-actions">
-          <a href="#videos" class="btn btn-primary">Watch Lectures</a>
+          <a href="#rtos" class="btn btn-primary">RTOS Lab Work</a>
+          <a href="#videos" class="btn btn-secondary">Watch Lectures</a>
           <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
       </div>
@@ -371,7 +452,16 @@
           <p class="card-title">Applied Mathematics</p>
           <p class="card-desc">Probability, statistics, and transforms used across engineering disciplines.</p>
         </div>
-      </div>
+        <div class="expertise-card" style="border-color: rgba(0,179,136,0.3);">
+          <span class="card-icon" style="color:var(--qnx);">⏱</span>
+          <p class="card-title">RTOS &amp; QNX</p>
+          <p class="card-desc">Real-time OS programming with BlackBerry QNX — processes, IPC, scheduling, and synchronization.</p>
+        </div>
+        <div class="expertise-card" style="border-color: rgba(0,179,136,0.3);">
+          <span class="card-icon" style="color:var(--qnx);">⚙</span>
+          <p class="card-title">Embedded Systems</p>
+          <p class="card-desc">Hands-on lab experiments in real-time task management, mutex, semaphores, and pulse messaging.</p>
+        </div>
     </section>
   </div>
 
